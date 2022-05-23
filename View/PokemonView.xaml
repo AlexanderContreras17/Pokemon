@@ -1,0 +1,166 @@
+﻿<Window x:Class="Pokemon.View.PokemonView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Pokemon.View" 
+        xmlns:ViewModel="clr-namespace:Pokemon.ViewModel"
+        mc:Ignorable="d"
+        Title="Pokémon" Height="450" Width="800">
+    <Window.DataContext>
+        <ViewModel:PokemonViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <ContentControl>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Setter Property="Content">
+                        <Setter.Value>
+                            <Grid>
+                                <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="25"/>
+                </Style>
+            </Grid.Resources>
+                                <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+                                <Image Source="{Binding Pokemon.Foto}"/>
+                                <StackPanel Grid.Column="1">
+                                    <DockPanel>
+                    <Label Content="Nombre: " Foreground="#333" FontWeight="Bold"/>
+                    <Label Content="{Binding Pokemon.Nombre}"/>
+                </DockPanel>
+                                    <DockPanel>
+                    <Label Content="Tipo 1: " Foreground="#333" FontWeight="Bold"/>
+                    <Label Content="{Binding Pokemon.Tipo1}"/>
+                </DockPanel>
+                                    <DockPanel>
+                    <Label Content="Tipo 2: " Foreground="#333" FontWeight="Bold"/>
+                    <Label Content="{Binding Pokemon.Tipo2}"/>
+                </DockPanel>
+                                    <DockPanel>
+                    <Label Content="Categoria: " Foreground="#333" FontWeight="Bold"/>
+                    <Label Content="{Binding Pokemon.Categoria}"/>
+                </DockPanel>
+                                    <Button Content="Modificar" Command="{Binding CambiarVistaCommand}" CommandParameter="Editar"/>
+                                </StackPanel>
+                                <Grid  Grid.ColumnSpan="2" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.8*"/>
+                        <ColumnDefinition Width="0.2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                <ListView Grid.RowSpan="2" ItemsSource="{Binding Lista}" SelectedItem="{Binding Pokemon}" FlowDirection="LeftToRight">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <local:PokemonTemplate/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+                <Button Content="Agregar" Grid.Column="1" Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar"/>
+                    <Button Content="Eliminar" Grid.Column="1" Grid.Row="1" Command="{Binding CambiarVistaCommand}" CommandParameter="Eliminar"/>
+            </Grid>
+                            </Grid>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Pokemon}" Value="{x:Null}">
+                            <Setter Property="Content">
+                                <Setter.Value>
+                                    <Grid>
+                                        <Grid.Resources>
+                                            <Style TargetType="Label">
+                                                <Setter Property="FontSize" Value="25"/>
+                                            </Style>
+                                        </Grid.Resources>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="0.5*"/>
+                                            <ColumnDefinition Width="0.5*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="https://www.shareicon.net/data/2016/10/18/844170_game_512x512.png"/>
+                                        <StackPanel Grid.Column="1">
+                                            <DockPanel>
+                                                <Label Content="Nombre: " Foreground="#333" FontWeight="Bold"/>
+                                                <Label Content="Desconocido (?)"/>
+                                            </DockPanel>
+                                            <DockPanel>
+                                                <Label Content="Tipo 1: " Foreground="#333" FontWeight="Bold"/>
+                                                <Label Content="Desconocido (?)"/>
+                                            </DockPanel>
+                                            <DockPanel>
+                                                <Label Content="Tipo 2: " Foreground="#333" FontWeight="Bold"/>
+                                                <Label Content="Desconocido (?)"/>
+                                            </DockPanel>
+                                            <DockPanel>
+                                                <Label Content="Categoria: " Foreground="#333" FontWeight="Bold"/>
+                                                <Label Content="Desconocido (?)"/>
+                                            </DockPanel>
+                                        </StackPanel>
+                                        <Grid  Grid.ColumnSpan="2" Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.8*"/>
+                                                <ColumnDefinition Width="0.2*"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+
+                                            <ListView Grid.RowSpan="2" ItemsSource="{Binding Lista}" SelectedItem="{Binding Pokemon}" FlowDirection="LeftToRight">
+                                                <ListView.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <local:PokemonTemplate/>
+                                                    </DataTemplate>
+                                                </ListView.ItemTemplate>
+                                            </ListView>
+
+                                            <Button Content="Agregar" Grid.Column="1" Command="{Binding CambiarVistaCommand}" CommandParameter="Agregar"/>
+                                            <Button Content="Eliminar" Grid.Column="1" Grid.Row="1" Command="{Binding CambiarVistaCommand}" CommandParameter="Eliminar"/>
+                                        </Grid>
+                                    </Grid>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+        <ContentControl>
+            <ContentControl.Resources>
+                <ViewModel:AgregarPokemonView x:Key="Agregar"/>
+                <ViewModel:EliminarPokemonView x:Key="Eliminar"/>
+                <ViewModel:ModificarPokemonView x:Key="Modificar"/>
+            </ContentControl.Resources>
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Vista}" Value="Agregar">
+                            <Setter Property="Content" Value="{StaticResource Agregar}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="Eliminar">
+                            <Setter Property="Content" Value="{StaticResource Eliminar}"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Vista}" Value="Editar">
+                            <Setter Property="Content" Value="{StaticResource Modificar}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Grid>
+</Window>

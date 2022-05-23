@@ -1,0 +1,86 @@
+﻿<UserControl x:Class="Pokemon.ViewModel.AgregarPokemonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pokemon.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Border Padding="50" Background="#34303030">
+
+        <StackPanel Margin="10" Background="White">
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="0,0,10,0">Nombre:</TextBlock>
+                <TextBox Width="100" Text="{Binding Pokemon.Nombre}"/>
+
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <TextBlock Margin="0,0,10,0">Tipo 1:</TextBlock>
+
+                <ComboBox Width="159" Text="{Binding Pokemon.Tipo1}">
+                    <ComboBoxItem>Fuego</ComboBoxItem>
+                    <ComboBoxItem>Agua</ComboBoxItem>
+                    <ComboBoxItem>Planta</ComboBoxItem>
+                    <ComboBoxItem>Electrico</ComboBoxItem>
+                    <ComboBoxItem>Tierra</ComboBoxItem>
+                    <ComboBoxItem>Roca</ComboBoxItem>
+                    <ComboBoxItem>Siniestro</ComboBoxItem>
+                    <ComboBoxItem>Fantasma</ComboBoxItem>
+                    <ComboBoxItem>Psiquico</ComboBoxItem>
+                    <ComboBoxItem>Lucha</ComboBoxItem>
+                    <ComboBoxItem>Hada</ComboBoxItem>
+                    <ComboBoxItem>Acero</ComboBoxItem>
+                    <ComboBoxItem>Veneno</ComboBoxItem>
+                    <ComboBoxItem>Normal</ComboBoxItem>
+                    <ComboBoxItem>Volador</ComboBoxItem>
+                    <ComboBoxItem>Dragon</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="0,0,10,0">Tipo 2</TextBlock>
+
+                <ComboBox Width="159" Text="{Binding Pokemon.Tipo2}">
+                    <ComboBoxItem >Fuego</ComboBoxItem>
+                    <ComboBoxItem>Agua</ComboBoxItem>
+                    <ComboBoxItem>Planta</ComboBoxItem>
+                    <ComboBoxItem>Electrico</ComboBoxItem>
+                    <ComboBoxItem>Tierra</ComboBoxItem>
+                    <ComboBoxItem>Roca</ComboBoxItem>
+                    <ComboBoxItem>Siniestro</ComboBoxItem>
+                    <ComboBoxItem>Fantasma</ComboBoxItem>
+                    <ComboBoxItem>Psiquico</ComboBoxItem>
+                    <ComboBoxItem>Lucha</ComboBoxItem>
+                    <ComboBoxItem>Hada</ComboBoxItem>
+                    <ComboBoxItem>Acero</ComboBoxItem>
+                    <ComboBoxItem>Veneno</ComboBoxItem>
+                    <ComboBoxItem>Normal</ComboBoxItem>
+                    <ComboBoxItem>Volador</ComboBoxItem>
+                    <ComboBoxItem>Dragon</ComboBoxItem>
+                    <ComboBoxItem>Ninguno</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="0,0,10,0">Categoria</TextBlock>
+
+                <ComboBox Width="159" Text="{Binding Pokemon.Categoria}">
+                    <ComboBoxItem>Legendario Mayor</ComboBoxItem>
+                    <ComboBoxItem>Legendario Menor</ComboBoxItem>
+                    <ComboBoxItem>Mitico</ComboBoxItem>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="10">
+                <TextBlock Margin="0,0,10,0">Foto (Link)</TextBlock>
+                <TextBox Width="100" Text="{Binding Pokemon.Foto}"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Cancelar" Grid.Column="0" Command="{Binding CancelarCommand}"/>
+                <Button Content="Guardar" Grid.Column="1" Command="{Binding AgregarCommand}"/>
+
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>

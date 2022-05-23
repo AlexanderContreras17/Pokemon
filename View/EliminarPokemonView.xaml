@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="Pokemon.ViewModel.EliminarPokemonView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Pokemon.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="800">
+    <Border Padding="50" Background="#34303030">
+
+        <StackPanel Margin="10" Background="White">
+            <DockPanel>
+                <Label>¿Seguro de eliminar este Pokémon?</Label>
+                <TextBlock TextAlignment="Center" Text="{Binding Pokemon.Nombre}"/>
+            </DockPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Content="Cancelar" Grid.Column="0" Command="{Binding CancelarCommand}"/>
+                <Button Content="Guardar" Grid.Column="1" Command="{Binding EliminarCommand}"/>
+            </Grid>
+        </StackPanel>
+    </Border>
+</UserControl>
