@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="View\AgregarPokemonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\EliminarPokemonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\ModificarPokemonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PokemonDetallesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PokemonTemplate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\PokemonView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\AgregarPokemonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\EliminarPokemonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\ModificarPokemonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PokemonDetallesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PokemonTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\PokemonView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
